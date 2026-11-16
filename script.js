@@ -302,7 +302,7 @@
     windows: {
       label: 'Windows', status: 'Compilación para Windows seleccionada',
       hint: 'Elige tu plataforma. Descomprime, ejecuta <code>vortex64.exe</code> y listo: el runtime de Visual C++ ya va incluido.',
-      download: 'https://github.com/SugarSV11/Vortex64-Windows/releases/download/v1.0.0/Vortex64-Windows-x64.zip',
+      download: 'https://github.com/SugarSV11/Vortex64-Windows/releases/download/v1.1.0/Vortex64-Windows-x64.zip',
       file: 'Vortex64-Windows-x64.zip',
       source: 'https://github.com/SugarSV11/Vortex64-Windows/archive/refs/heads/main.zip',
       repo: 'https://github.com/SugarSV11/Vortex64-Windows'
