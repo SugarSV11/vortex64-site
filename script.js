@@ -302,14 +302,16 @@
     windows: {
       label: 'Windows', status: 'Compilación para Windows seleccionada',
       hint: 'Elige tu plataforma. Descomprime, ejecuta <code>vortex64.exe</code> y listo: el runtime de Visual C++ ya va incluido.',
-      download: 'https://github.com/SugarSV11/Vortex64-Windows/releases',
+      download: 'https://github.com/SugarSV11/Vortex64-Windows/releases/download/v1.0.0/Vortex64-Windows-x64.zip',
+      file: 'Vortex64-Windows-x64.zip',
       source: 'https://github.com/SugarSV11/Vortex64-Windows/archive/refs/heads/main.zip',
       repo: 'https://github.com/SugarSV11/Vortex64-Windows'
     },
     linux: {
       label: 'Linux', status: 'Compilación para Linux seleccionada',
       hint: 'Elige tu plataforma. Descarga la <code>AppImage</code>, dale permiso de ejecución y ábrela: no hace falta instalar nada.',
-      download: 'https://github.com/SugarSV11/Vortex64/releases',
+      download: 'https://github.com/SugarSV11/Vortex64/releases/download/v1.0.0/Vortex64-1.0.0-x86_64.AppImage',
+      file: 'Vortex64-1.0.0-x86_64.AppImage',
       source: 'https://github.com/SugarSV11/Vortex64/archive/refs/heads/main.zip',
       repo: 'https://github.com/SugarSV11/Vortex64'
     }
@@ -326,11 +328,13 @@
     $('#status').textContent = b.status;
     $('#dlHint').innerHTML = b.hint;
     $('#dlBtn').href = b.download;
+    $('#dlBtn').setAttribute('download', b.file);
     $('#dlLabel').textContent = `Descargar para ${b.label}`;
     $('#srcLink').href = b.source;
     $('#repoLink').href = b.repo;
   }
   $$('.opt').forEach(o => o.addEventListener('click', () => selectPlatform(o.dataset.platform)));
+  $('#dlBtn').addEventListener('click', () => say(`Descargando ${builds[sw.dataset.on].file}…`));
   const hint = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
   selectPlatform(/linux/i.test(hint) && !/android/i.test(navigator.userAgent) ? 'linux' : 'windows');
 

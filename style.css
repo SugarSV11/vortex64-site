@@ -300,3 +300,7 @@ body.lb-open{overflow:hidden}
   .cli-box{flex-wrap:wrap;padding:12px}
   .cli-box code{flex-basis:100%}
 }
+
+/* SEO / a11y helpers */
+.sr-only,.split .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;opacity:1!important;transform:none!important;animation:none!important}
+.footer p a{color:inherit;text-decoration:underline;text-underline-offset:3px}

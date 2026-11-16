@@ -1,0 +1,6 @@
+# Vortex64 — sitio oficial
+User-agent: *
+Allow: /
+Disallow: /vortex64-site/README.md
+
+Sitemap: https://sugarsv11.github.io/vortex64-site/sitemap.xml
