@@ -11,3 +11,7 @@ Landing page estática (HTML/CSS/JS) con capturas reales de Vortex64 para Window
 Vista previa: `py -m http.server 8000` en esta carpeta y abrir http://localhost:8000
 Capturas en `assets/screenshots/`. Enlaces de descarga en `script.js`.
 SEO: `sitemap.xml`, `robots.txt`, metadatos y Schema.org en `index.html`.
+
+Idiomas: ES/EN con el botón de la barra superior (texto en `data-en` dentro de `index.html`, lógica en `script.js`; también `?lang=en`).
+Los enlaces de descarga de Windows están directamente en el HTML; el de Linux se activa con el selector o, sin JavaScript, desde el bloque `noscript`.
+El sitio muestra el crédito a Project64 (GPLv2) en el pie de página.
