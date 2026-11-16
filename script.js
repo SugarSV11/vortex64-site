@@ -4,6 +4,33 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
+  /* ---------- language (ES / EN, no dependencies) ---------- */
+  const STR = {
+    es: {
+      menuOpen: 'Abrir navegación', menuClose: 'Cerrar navegación', shot: (n) => `Captura ${n}`,
+      tour: ['Biblioteca', 'Ajustes', 'Gráficos'],
+      copy: 'Copiar', copied: 'Copiado', copiedMsg: 'Comando copiado al portapapeles',
+      dlFor: (l) => `Descargar para ${l}`, downloading: (f) => `Descargando ${f}…`,
+      title: 'Vortex64 — Emulador de Nintendo 64 para Windows y Linux | Descarga oficial',
+      desc: 'Vortex64, el emulador de Nintendo 64 de SugarSV11 para Windows 10/11 y Linux. Nativo, portable y de código abierto (GPL-2.0): recompilador JIT x64, GLideN64, save states y depurador. Descarga oficial.'
+    },
+    en: {
+      menuOpen: 'Open navigation', menuClose: 'Close navigation', shot: (n) => `Screenshot ${n}`,
+      tour: ['Library', 'Settings', 'Graphics'],
+      copy: 'Copy', copied: 'Copied', copiedMsg: 'Command copied to the clipboard',
+      dlFor: (l) => `Download for ${l}`, downloading: (f) => `Downloading ${f}…`,
+      title: 'Vortex64 — Nintendo 64 emulator for Windows and Linux | Official download',
+      desc: 'Vortex64, the Nintendo 64 emulator by SugarSV11 for Windows 10/11 and Linux. Native, portable and open source (GPL-2.0): x64 JIT recompiler, GLideN64, save states and debugger. Official download.'
+    }
+  };
+  let lang = 'es';
+  try {
+    const q = new URLSearchParams(location.search).get('lang');
+    const saved = localStorage.getItem('vortex64-lang');
+    lang = (q === 'en' || q === 'es') ? q : (saved === 'en' ? 'en' : 'es');
+  } catch { /* storage unavailable: stay in Spanish */ }
+  const L = () => STR[lang];
+
   /* ---------- reveal on scroll ---------- */
   const io = new IntersectionObserver((es) => {
     es.forEach(e => {
@@ -54,7 +81,7 @@
   const setMenu = (open) => {
     nav.classList.toggle('open', open);
     menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.setAttribute('aria-label', open ? 'Cerrar navegación' : 'Abrir navegación');
+    menuBtn.setAttribute('aria-label', open ? L().menuClose : L().menuOpen);
   };
   menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
   $$('a', nav).forEach(a => a.addEventListener('click', () => setMenu(false)));
@@ -85,7 +112,7 @@
   let slide = 0, slideTimer;
   const dots = slides.map((_, i) => {
     const b = document.createElement('button');
-    b.setAttribute('aria-label', `Captura ${i + 1}`);
+    b.setAttribute('aria-label', L().shot(i + 1));
     b.tabIndex = -1;
     b.addEventListener('click', () => { show(i); restart(); });
     dotsBox.appendChild(b);
@@ -180,8 +207,8 @@
   const tabs = $$('.tab');
   const tourImgs = $$('#tourStage img');
   const tourTitle = $('#tourTitle');
-  const names = ['Biblioteca', 'Ajustes', 'Gráficos'];
   let tab = 0, tourTimer;
+  const setTourTitle = () => { tourTitle.textContent = `Vortex64 — ${L().tour[tab]}`; };
   function setTab(i) {
     tab = (i + tabs.length) % tabs.length;
     tabs.forEach((t, k) => {
@@ -191,7 +218,7 @@
     // restart progress bar animation
     const a = tabs[tab]; a.classList.remove('active'); void a.offsetWidth; a.classList.add('active');
     tourImgs.forEach((im, k) => im.classList.toggle('on', k === tab));
-    tourTitle.textContent = `Vortex64 — ${names[tab]}`;
+    setTourTitle();
   }
   function tourPlay() {
     clearInterval(tourTimer);
@@ -224,7 +251,7 @@
     const s = list[idx];
     lbImg.src = s.dataset.src;
     lbImg.alt = $('img', s).alt;
-    lbCap.textContent = s.dataset.cap || '';
+    lbCap.textContent = (lang === 'en' && s.getAttribute('data-en-data-cap')) || s.dataset.cap || '';
     lbCount.textContent = `${idx + 1} / ${list.length}`;
     lbImg.style.animation = 'none'; void lbImg.offsetWidth; lbImg.style.animation = '';
   }
@@ -287,12 +314,12 @@
       t.remove();
     }
     copyBtn.classList.add('done');
-    $('span', copyBtn).textContent = 'Copiado';
+    $('span', copyBtn).textContent = L().copied;
     $('use', copyBtn).setAttribute('href', '#i-check');
-    say('Comando copiado al portapapeles');
+    say(L().copiedMsg);
     setTimeout(() => {
       copyBtn.classList.remove('done');
-      $('span', copyBtn).textContent = 'Copiar';
+      $('span', copyBtn).textContent = L().copy;
       $('use', copyBtn).setAttribute('href', '#i-copy');
     }, 1800);
   });
@@ -300,16 +327,22 @@
   /* ---------- platform switch ---------- */
   const builds = {
     windows: {
-      label: 'Windows', status: 'Compilación para Windows seleccionada',
-      hint: 'Elige tu plataforma. Descomprime, ejecuta <code>vortex64.exe</code> y listo: el runtime de Visual C++ ya va incluido.',
+      label: 'Windows',
+      text: {
+        es: { status: 'Compilación para Windows seleccionada', hint: 'Elige tu plataforma. Descomprime, ejecuta <code>vortex64.exe</code> y listo: el runtime de Visual C++ ya va incluido.' },
+        en: { status: 'Windows build selected', hint: 'Choose your platform. Unzip, run <code>vortex64.exe</code> and you are done: the Visual C++ runtime is already included.' }
+      },
       download: 'https://github.com/SugarSV11/Vortex64-Windows/releases/download/v1.1.0/Vortex64-Windows-x64.zip',
       file: 'Vortex64-Windows-x64.zip',
       source: 'https://github.com/SugarSV11/Vortex64-Windows/archive/refs/heads/main.zip',
       repo: 'https://github.com/SugarSV11/Vortex64-Windows'
     },
     linux: {
-      label: 'Linux', status: 'Compilación para Linux seleccionada',
-      hint: 'Elige tu plataforma. Descarga la <code>AppImage</code>, dale permiso de ejecución y ábrela: no hace falta instalar nada.',
+      label: 'Linux',
+      text: {
+        es: { status: 'Compilación para Linux seleccionada', hint: 'Elige tu plataforma. Descarga la <code>AppImage</code>, dale permiso de ejecución y ábrela: no hace falta instalar nada.' },
+        en: { status: 'Linux build selected', hint: 'Choose your platform. Download the <code>AppImage</code>, make it executable and open it: nothing to install.' }
+      },
       download: 'https://github.com/SugarSV11/Vortex64/releases/download/v1.0.0/Vortex64-1.0.0-x86_64.AppImage',
       file: 'Vortex64-1.0.0-x86_64.AppImage',
       source: 'https://github.com/SugarSV11/Vortex64/archive/refs/heads/main.zip',
@@ -317,26 +350,65 @@
     }
   };
   const sw = $('.switch');
+  let curPlatform = 'windows';
   function selectPlatform(p) {
     const b = builds[p];
+    curPlatform = p;
     sw.dataset.on = p;
     $$('.opt').forEach(o => {
       const on = o.dataset.platform === p;
       o.classList.toggle('active', on);
       o.setAttribute('aria-pressed', String(on));
     });
-    $('#status').textContent = b.status;
-    $('#dlHint').innerHTML = b.hint;
+    $('#status').textContent = b.text[lang].status;
+    $('#dlHint').innerHTML = b.text[lang].hint;
     $('#dlBtn').href = b.download;
     $('#dlBtn').setAttribute('download', b.file);
-    $('#dlLabel').textContent = `Descargar para ${b.label}`;
+    $('#dlLabel').textContent = L().dlFor(b.label);
     $('#srcLink').href = b.source;
     $('#repoLink').href = b.repo;
   }
   $$('.opt').forEach(o => o.addEventListener('click', () => selectPlatform(o.dataset.platform)));
-  $('#dlBtn').addEventListener('click', () => say(`Descargando ${builds[sw.dataset.on].file}…`));
+  $('#dlBtn').addEventListener('click', () => say(L().downloading(builds[sw.dataset.on].file)));
   const hint = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
   selectPlatform(/linux/i.test(hint) && !/android/i.test(navigator.userAgent) ? 'linux' : 'windows');
+
+  /* ---------- apply language ---------- */
+  const langBtn = $('#langBtn');
+  const swap = (el, attrName, enAttr) => {
+    const key = 'es_' + attrName.replace(/[^a-z]/gi, '_');
+    if (el.dataset[key] === undefined) el.dataset[key] = el.getAttribute(attrName) || '';
+    el.setAttribute(attrName, lang === 'en' ? el.getAttribute(enAttr) : el.dataset[key]);
+  };
+  function applyLang() {
+    document.documentElement.lang = lang;
+    $$('[data-en]').forEach(el => {
+      if (el.dataset.es === undefined) el.dataset.es = el.innerHTML;
+      el.innerHTML = lang === 'en' ? el.getAttribute('data-en') : el.dataset.es;
+    });
+    $$('[data-en-alt]').forEach(el => swap(el, 'alt', 'data-en-alt'));
+    $$('[data-en-aria-label]:not(#langBtn)').forEach(el => swap(el, 'aria-label', 'data-en-aria-label'));
+    document.title = L().title;
+    const md = $('meta[name="description"]'); if (md) md.setAttribute('content', L().desc);
+    const en = lang === 'en';
+    langBtn.setAttribute('aria-label', en ? 'Cambiar a español' : 'Switch to English');
+    langBtn.setAttribute('lang', en ? 'es' : 'en');
+    langBtn.setAttribute('aria-pressed', String(en));
+    $$('span', langBtn).forEach((sp, i) => sp.classList.toggle('on', (i === 0) !== en));
+    menuBtn.setAttribute('aria-label', nav.classList.contains('open') ? L().menuClose : L().menuOpen);
+    dots.forEach((d, i) => d.setAttribute('aria-label', L().shot(i + 1)));
+    setTourTitle();
+    if (!copyBtn.classList.contains('done')) $('span', copyBtn).textContent = L().copy;
+    selectPlatform(curPlatform);
+    if (!lb.hidden) render();
+  }
+  langBtn.addEventListener('click', () => {
+    lang = lang === 'en' ? 'es' : 'en';
+    try { localStorage.setItem('vortex64-lang', lang); } catch { /* ignore */ }
+    applyLang();
+  });
+  if (lang === 'en') applyLang();
+  else $$('span', langBtn).forEach((sp, i) => sp.classList.toggle('on', i === 0));
 
   /* ---------- cartridge tilt ---------- */
   const dlCard = $('#dlCard'), cart = $('#cart');

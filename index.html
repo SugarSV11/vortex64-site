@@ -60,6 +60,7 @@
         "applicationSubCategory": "Emulator",
         "operatingSystem": "Windows 10, Windows 11, Linux",
         "softwareVersion": "1.1.0",
+        "dateModified": "2026-11-16",
         "license": "https://spdx.org/licenses/GPL-2.0.html",
         "isAccessibleForFree": true,
         "inLanguage": ["es", "en"],
@@ -110,6 +111,7 @@
   <script defer src="script.js"></script>
 </head>
 <body>
+  <a class="skip" href="#home" data-en="Skip to content">Saltar al contenido</a>
   <!-- SVG icon sprite -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
@@ -133,16 +135,17 @@
   <div class="grain" aria-hidden="true"></div>
 
   <header class="topbar" id="topbar">
-    <a class="brand" href="#home" aria-label="Vortex64 inicio">
+    <a class="brand" href="#home" aria-label="Vortex64 inicio" data-en-aria-label="Vortex64 home">
       <img class="brand-mark" src="assets/brand/logo-lime.png" alt="" width="30" height="28">
       <span>VORTEX<b>64</b></span>
     </a>
     <nav class="nav" id="nav">
-      <a href="#features">Características</a>
-      <a href="#tour">Interfaz</a>
-      <a href="#gallery">Capturas</a>
-      <a href="#start">Empezar</a>
-      <a href="#download">Descargar</a>
+      <a href="#features" data-en="Features">Características</a>
+      <a href="#tour" data-en="Interface">Interfaz</a>
+      <a href="#gallery" data-en="Screenshots">Capturas</a>
+      <a href="#start" data-en="Get started">Empezar</a>
+      <a href="#download" data-en="Download">Descargar</a>
+      <button class="lang-btn" id="langBtn" type="button" lang="en" aria-label="Switch to English" data-en-aria-label="Cambiar a español"><span class="on">ES</span><i>/</i><span>EN</span></button>
       <a class="nav-gh" href="https://github.com/SugarSV11/Vortex64" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
     </nav>
     <button class="menu-toggle" id="menuBtn" aria-label="Abrir navegación" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
@@ -154,16 +157,16 @@
       <div class="spot" id="spot" aria-hidden="true"></div>
       <div class="hero-copy">
         <div class="pill"><span class="dot"></span> v1.1 · Windows 10/11 x64 · Linux</div>
-        <h1 class="split"><span>Tu N64,</span><span><em>como nunca</em></span><span>la recordaste.</span><span class="sr-only"> Vortex64, emulador de Nintendo 64 para Windows y Linux</span></h1>
-        <p class="lead">Vortex64 es un emulador de Nintendo 64 nativo, con recompilador JIT, plugin de vídeo GLideN64 y una interfaz moderna hecha con Qt 6. Sin Wine, sin capas, sin ruido.</p>
+        <h1 class="split"><span data-en="Your N64,">Tu N64,</span><span data-en="<em>as you never</em>"><em>como nunca</em></span><span data-en="remembered it.">la recordaste.</span><span class="sr-only" data-en=" Vortex64, Nintendo 64 emulator for Windows and Linux"> Vortex64, emulador de Nintendo 64 para Windows y Linux</span></h1>
+        <p class="lead" data-en="Vortex64 is a native Nintendo 64 emulator with a JIT recompiler, the GLideN64 video plugin and a modern Qt 6 interface. No Wine, no layers, no noise.">Vortex64 es un emulador de Nintendo 64 nativo, con recompilador JIT, plugin de vídeo GLideN64 y una interfaz moderna hecha con Qt 6. Sin Wine, sin capas, sin ruido.</p>
         <div class="cta">
-          <a class="btn btn-primary magnetic" href="#download"><span>Descargar</span><svg class="ic"><use href="#i-down"/></svg></a>
-          <a class="btn btn-ghost" href="#gallery"><span>Ver capturas</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-primary magnetic" href="#download"><span data-en="Download">Descargar</span><svg class="ic"><use href="#i-down"/></svg></a>
+          <a class="btn btn-ghost" href="#gallery"><span data-en="See screenshots">Ver capturas</span><svg class="ic"><use href="#i-arrow"/></svg></a>
         </div>
         <ul class="hero-stats">
-          <li><b><span class="count" data-to="60">60</span></b><span>VI/s en Super Mario 64</span></li>
-          <li><b>JIT</b><span>recompilador x64</span></li>
-          <li><b>GPL-2</b><span>código abierto</span></li>
+          <li><b><span class="count" data-to="60">60</span></b><span data-en="VI/s in Super Mario 64">VI/s en Super Mario 64</span></li>
+          <li><b>JIT</b><span data-en="x64 recompiler">recompilador x64</span></li>
+          <li><b>GPL-2</b><span data-en="open source">código abierto</span></li>
         </ul>
       </div>
 
@@ -174,22 +177,22 @@
           <figure class="window hero-main">
             <div class="win-bar"><i></i><i></i><i></i><span>Vortex64 — Super Mario 64 (U)</span></div>
             <div class="screen" id="heroScreen">
-              <img class="on" src="assets/screenshots/snow-run.jpg" alt="Mario en la nieve de Cool, Cool Mountain, ejecutándose en Vortex64" width="1440" height="1008">
-              <img src="assets/screenshots/bowser.jpg" alt="Mario frente a Bowser en Vortex64" width="1440" height="1008">
-              <img src="assets/screenshots/snowman.jpg" alt="Mario junto al muñeco de nieve gigante en Vortex64" width="1440" height="1008">
-              <img src="assets/screenshots/title.jpg" alt="Pantalla de título de Super Mario 64 en Vortex64" width="1440" height="1008">
+              <img class="on" src="assets/screenshots/snow-run.jpg" alt="Mario en la nieve de Cool, Cool Mountain, ejecutándose en Vortex64" data-en-alt="Mario in the snow of Cool, Cool Mountain, running on Vortex64" width="1440" height="1008">
+              <img src="assets/screenshots/bowser.jpg" alt="Mario frente a Bowser en Vortex64" data-en-alt="Mario facing Bowser in Vortex64" width="1440" height="1008">
+              <img src="assets/screenshots/snowman.jpg" alt="Mario junto al muñeco de nieve gigante en Vortex64" data-en-alt="Mario next to the giant snowman in Vortex64" width="1440" height="1008">
+              <img src="assets/screenshots/title.jpg" alt="Pantalla de título de Super Mario 64 en Vortex64" data-en-alt="Super Mario 64 title screen in Vortex64" width="1440" height="1008">
               <div class="scan" aria-hidden="true"></div>
             </div>
             <div class="win-status"><span class="ok">● Running</span><span>VI/s: 60.15</span><span>JIT</span><span class="hide-sm">Project64 Video</span><span class="dots" id="heroDots" aria-hidden="true"></span></div>
           </figure>
           <figure class="window hero-lib">
-            <img src="assets/screenshots/library.png" alt="Biblioteca de ROMs de Vortex64" width="1180" height="750">
+            <img src="assets/screenshots/library.png" alt="Biblioteca de ROMs de Vortex64" data-en-alt="Vortex64 ROM library" width="1180" height="750">
           </figure>
-          <div class="chip chip-a">▶ 60 VI/s estables</div>
-          <div class="chip chip-b">✦ GLideN64 incluido</div>
+          <div class="chip chip-a" data-en="▶ 60 stable VI/s">▶ 60 VI/s estables</div>
+          <div class="chip chip-b" data-en="✦ GLideN64 included">✦ GLideN64 incluido</div>
         </div>
       </div>
-      <a class="scroll-cue" href="#features" aria-label="Bajar a características"><span></span></a>
+      <a class="scroll-cue" href="#features" aria-label="Bajar a características" data-en-aria-label="Scroll down to features"><span></span></a>
     </section>
 
     <!-- MARQUEE -->
@@ -203,45 +206,45 @@
     <!-- FEATURES -->
     <section class="section" id="features">
       <div class="sec-head reveal">
-        <span class="kicker">01 — Características</span>
-        <h2>Todo lo que necesitas,<br><em>nada que te estorbe.</em></h2>
+        <span class="kicker" data-en="01 — Features">01 — Características</span>
+        <h2 data-en="Everything you need,<br><em>nothing in your way.</em>">Todo lo que necesitas,<br><em>nada que te estorbe.</em></h2>
       </div>
       <div class="bento">
         <article class="card c-wide reveal">
           <div class="card-text">
             <span class="icon"><svg><use href="#i-bolt"/></svg></span>
-            <h3>Núcleo MIPS R4300i con JIT</h3>
-            <p>Intérprete y recompilador JIT x64, verificado contra el intérprete con miles de programas aleatorios.</p>
+            <h3 data-en="MIPS R4300i core with JIT">Núcleo MIPS R4300i con JIT</h3>
+            <p data-en="Interpreter and x64 JIT recompiler, verified against the interpreter with thousands of random programs.">Intérprete y recompilador JIT x64, verificado contra el intérprete con miles de programas aleatorios.</p>
           </div>
-          <div class="card-shot"><img src="assets/screenshots/bowser.jpg" alt="Bowser y Mario en Vortex64" loading="lazy"></div>
+          <div class="card-shot"><img src="assets/screenshots/bowser.jpg" alt="Bowser y Mario en Vortex64" data-en-alt="Bowser and Mario in Vortex64" loading="lazy"></div>
         </article>
         <article class="card reveal">
           <span class="icon"><svg><use href="#i-layers"/></svg></span>
-          <h3>Vídeo GLideN64</h3>
-          <p>Plugin propio OpenGL/SDL2 embebido en la ventana y el binario oficial de GLideN64 en el paquete.</p>
+          <h3 data-en="GLideN64 video">Vídeo GLideN64</h3>
+          <p data-en="Own OpenGL/SDL2 plugin embedded in the window, plus the official GLideN64 binary in the package.">Plugin propio OpenGL/SDL2 embebido en la ventana y el binario oficial de GLideN64 en el paquete.</p>
         </article>
         <article class="card reveal">
           <span class="icon"><svg><use href="#i-save"/></svg></span>
-          <h3>Guardado total</h3>
-          <p>EEPROM, SRAM y Flash, además de save states con ranuras.</p>
+          <h3 data-en="Full saving">Guardado total</h3>
+          <p data-en="EEPROM, SRAM and Flash, plus save states with slots.">EEPROM, SRAM y Flash, además de save states con ranuras.</p>
         </article>
         <article class="card reveal">
           <span class="icon"><svg><use href="#i-window"/></svg></span>
-          <h3>Interfaz Qt 6</h3>
-          <p>Biblioteca, favoritos, recientes, pantalla completa y ajustes claros.</p>
+          <h3 data-en="Qt 6 interface">Interfaz Qt 6</h3>
+          <p data-en="Library, favorites, recent files, full screen and clear settings.">Biblioteca, favoritos, recientes, pantalla completa y ajustes claros.</p>
         </article>
         <article class="card reveal">
           <span class="icon"><svg><use href="#i-pad"/></svg></span>
-          <h3>Teclado y mando</h3>
-          <p>Audio y entrada por SDL2, con configuración de controles.</p>
+          <h3 data-en="Keyboard and controller">Teclado y mando</h3>
+          <p data-en="SDL2 audio and input, with controller configuration.">Audio y entrada por SDL2, con configuración de controles.</p>
         </article>
         <article class="card c-wide c-dark reveal">
           <div class="card-text">
             <span class="icon"><svg><use href="#i-code"/></svg></span>
-            <h3>Depurador y scripts JavaScript</h3>
-            <p>Ventanas de depuración y scripting con acceso a sistema de archivos, procesos, sockets y temporizadores.</p>
+            <h3 data-en="Debugger and JavaScript scripts">Depurador y scripts JavaScript</h3>
+            <p data-en="Debugging and scripting windows with access to the file system, processes, sockets and timers.">Ventanas de depuración y scripting con acceso a sistema de archivos, procesos, sockets y temporizadores.</p>
           </div>
-          <div class="code" aria-label="Ejemplo de script"><div class="code-bar"><i></i><i></i><i></i><span>example.js</span></div><pre id="typed" data-code='console.log(pj64.romInfo.goodName);
+          <div class="code" aria-label="Ejemplo de script" data-en-aria-label="Script example"><div class="code-bar"><i></i><i></i><i></i><span>example.js</span></div><pre id="typed" data-code='console.log(pj64.romInfo.goodName);
 events.onexec(0x80246000, () =&gt; {
   // tu código aquí
 });'></pre></div>
@@ -252,22 +255,22 @@ events.onexec(0x80246000, () =&gt; {
     <!-- UI TOUR -->
     <section class="section" id="tour">
       <div class="sec-head reveal">
-        <span class="kicker">02 — Interfaz</span>
-        <h2>Una interfaz<br><em>que no se interpone.</em></h2>
-        <p class="sub">Explora las pantallas reales de Vortex64.</p>
+        <span class="kicker" data-en="02 — Interface">02 — Interfaz</span>
+        <h2 data-en="An interface<br><em>that stays out of your way.</em>">Una interfaz<br><em>que no se interpone.</em></h2>
+        <p class="sub" data-en="Explore the real Vortex64 screens.">Explora las pantallas reales de Vortex64.</p>
       </div>
       <div class="tour reveal">
-        <div class="tabs" role="tablist" aria-label="Pantallas de la interfaz">
-          <button class="tab active" role="tab" aria-selected="true" data-tab="0"><b>Biblioteca</b><span>Tus ROMs con región, tamaño, formato y tiempo de juego.</span></button>
-          <button class="tab" role="tab" aria-selected="false" data-tab="1"><b>Ajustes</b><span>Idioma, pausa al perder el foco, Discord Rich Presence y más.</span></button>
-          <button class="tab" role="tab" aria-selected="false" data-tab="2"><b>Gráficos</b><span>Plugin de vídeo, VSync, FPS máximos y pantalla completa.</span></button>
+        <div class="tabs" role="tablist" aria-label="Pantallas de la interfaz" data-en-aria-label="Interface screens">
+          <button class="tab active" role="tab" aria-selected="true" data-tab="0"><b data-en="Library">Biblioteca</b><span data-en="Your ROMs with region, size, format and play time.">Tus ROMs con región, tamaño, formato y tiempo de juego.</span></button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="1"><b data-en="Settings">Ajustes</b><span data-en="Language, pause on focus loss, Discord Rich Presence and more.">Idioma, pausa al perder el foco, Discord Rich Presence y más.</span></button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="2"><b data-en="Graphics">Gráficos</b><span data-en="Video plugin, VSync, max FPS and full screen.">Plugin de vídeo, VSync, FPS máximos y pantalla completa.</span></button>
         </div>
         <figure class="window tour-win">
           <div class="win-bar"><i></i><i></i><i></i><span id="tourTitle">Vortex64 — Biblioteca</span></div>
           <div class="tour-stage" id="tourStage">
-            <img class="on" src="assets/screenshots/library.png" alt="Biblioteca de ROMs de Vortex64" loading="lazy" width="1180" height="750">
-            <img src="assets/screenshots/settings.png" alt="Ajustes generales de Vortex64" loading="lazy" width="1180" height="750">
-            <img src="assets/screenshots/settings-graphics.png" alt="Ajustes gráficos de Vortex64" loading="lazy" width="1180" height="750">
+            <img class="on" src="assets/screenshots/library.png" alt="Biblioteca de ROMs de Vortex64" data-en-alt="Vortex64 ROM library" loading="lazy" width="1180" height="750">
+            <img src="assets/screenshots/settings.png" alt="Ajustes generales de Vortex64" data-en-alt="Vortex64 general settings" loading="lazy" width="1180" height="750">
+            <img src="assets/screenshots/settings-graphics.png" alt="Ajustes gráficos de Vortex64" data-en-alt="Vortex64 graphics settings" loading="lazy" width="1180" height="750">
           </div>
         </figure>
       </div>
@@ -276,85 +279,86 @@ events.onexec(0x80246000, () =&gt; {
     <!-- GALLERY -->
     <section class="section" id="gallery">
       <div class="sec-head reveal">
-        <span class="kicker">03 — Capturas</span>
-        <h2>Así se ve<br><em>por dentro.</em></h2>
-        <p class="sub">Capturas reales de Vortex64 en Windows ejecutando Super Mario 64 (USA). Toca una para ampliarla.</p>
+        <span class="kicker" data-en="03 — Screenshots">03 — Capturas</span>
+        <h2 data-en="This is how it looks<br><em>inside.</em>">Así se ve<br><em>por dentro.</em></h2>
+        <p class="sub" data-en="Real Vortex64 screenshots on Windows running Super Mario 64 (USA). Tap one to enlarge it.">Capturas reales de Vortex64 en Windows ejecutando Super Mario 64 (USA). Toca una para ampliarla.</p>
       </div>
-      <div class="filters" role="group" aria-label="Filtrar capturas">
-        <button class="filter active" data-filter="all">Todo</button>
-        <button class="filter" data-filter="game">Juego</button>
-        <button class="filter" data-filter="ui">Interfaz</button>
+      <div class="filters" role="group" aria-label="Filtrar capturas" data-en-aria-label="Filter screenshots">
+        <button class="filter active" data-filter="all" data-en="All">Todo</button>
+        <button class="filter" data-filter="game" data-en="Game">Juego</button>
+        <button class="filter" data-filter="ui" data-en="Interface">Interfaz</button>
       </div>
       <div class="gallery" id="galleryGrid">
-        <button class="shot s-big" data-kind="game" data-src="assets/screenshots/snow-run.jpg" data-cap="Cool, Cool Mountain · 60 VI/s"><img src="assets/screenshots/snow-run.jpg" alt="Mario en la nieve" loading="lazy"><span>Gameplay</span></button>
-        <button class="shot" data-kind="game" data-src="assets/screenshots/bowser.jpg" data-cap="Bowser · renderizado a pantalla completa"><img src="assets/screenshots/bowser.jpg" alt="Mario frente a Bowser" loading="lazy"><span>Bowser</span></button>
-        <button class="shot" data-kind="game" data-src="assets/screenshots/snowman.jpg" data-cap="Texturas nítidas y efectos de nieve"><img src="assets/screenshots/snowman.jpg" alt="Mario junto a un muñeco de nieve gigante" loading="lazy"><span>Nieve</span></button>
-        <button class="shot" data-kind="game" data-src="assets/screenshots/title.jpg" data-cap="Pantalla de título"><img src="assets/screenshots/title.jpg" alt="Pantalla de título de Super Mario 64" loading="lazy"><span>Título</span></button>
-        <button class="shot ui" data-kind="ui" data-src="assets/screenshots/library.png" data-cap="Biblioteca de ROMs"><img src="assets/screenshots/library.png" alt="Biblioteca de Vortex64" loading="lazy"><span>Biblioteca</span></button>
-        <button class="shot ui" data-kind="ui" data-src="assets/screenshots/settings.png" data-cap="Ajustes generales"><img src="assets/screenshots/settings.png" alt="Ajustes de Vortex64" loading="lazy"><span>Ajustes</span></button>
-        <button class="shot ui" data-kind="ui" data-src="assets/screenshots/settings-graphics.png" data-cap="Opciones gráficas"><img src="assets/screenshots/settings-graphics.png" alt="Ajustes gráficos de Vortex64" loading="lazy"><span>Gráficos</span></button>
-        <button class="shot" data-kind="game" data-src="assets/screenshots/snow-slide.jpg" data-cap="Fluidez a pantalla completa"><img src="assets/screenshots/snow-slide.jpg" alt="Mario deslizándose por una rampa de hielo" loading="lazy"><span>Pantalla completa</span></button>
+        <button class="shot s-big" data-kind="game" data-src="assets/screenshots/snow-run.jpg" data-cap="Cool, Cool Mountain · 60 VI/s"><img src="assets/screenshots/snow-run.jpg" alt="Mario en la nieve" data-en-alt="Mario in the snow" loading="lazy"><span>Gameplay</span></button>
+        <button class="shot" data-kind="game" data-src="assets/screenshots/bowser.jpg" data-cap="Bowser · renderizado a pantalla completa" data-en-data-cap="Bowser · rendered full screen"><img src="assets/screenshots/bowser.jpg" alt="Mario frente a Bowser" data-en-alt="Mario facing Bowser" loading="lazy"><span>Bowser</span></button>
+        <button class="shot" data-kind="game" data-src="assets/screenshots/snowman.jpg" data-cap="Texturas nítidas y efectos de nieve" data-en-data-cap="Sharp textures and snow effects"><img src="assets/screenshots/snowman.jpg" alt="Mario junto a un muñeco de nieve gigante" data-en-alt="Mario next to a giant snowman" loading="lazy"><span data-en="Snow">Nieve</span></button>
+        <button class="shot" data-kind="game" data-src="assets/screenshots/title.jpg" data-cap="Pantalla de título" data-en-data-cap="Title screen"><img src="assets/screenshots/title.jpg" alt="Pantalla de título de Super Mario 64" data-en-alt="Super Mario 64 title screen" loading="lazy"><span data-en="Title">Título</span></button>
+        <button class="shot ui" data-kind="ui" data-src="assets/screenshots/library.png" data-cap="Biblioteca de ROMs" data-en-data-cap="ROM library"><img src="assets/screenshots/library.png" alt="Biblioteca de Vortex64" data-en-alt="Vortex64 library" loading="lazy"><span data-en="Library">Biblioteca</span></button>
+        <button class="shot ui" data-kind="ui" data-src="assets/screenshots/settings.png" data-cap="Ajustes generales" data-en-data-cap="General settings"><img src="assets/screenshots/settings.png" alt="Ajustes de Vortex64" data-en-alt="Vortex64 settings" loading="lazy"><span data-en="Settings">Ajustes</span></button>
+        <button class="shot ui" data-kind="ui" data-src="assets/screenshots/settings-graphics.png" data-cap="Opciones gráficas" data-en-data-cap="Graphics options"><img src="assets/screenshots/settings-graphics.png" alt="Ajustes gráficos de Vortex64" data-en-alt="Vortex64 graphics settings" loading="lazy"><span data-en="Graphics">Gráficos</span></button>
+        <button class="shot" data-kind="game" data-src="assets/screenshots/snow-slide.jpg" data-cap="Fluidez a pantalla completa" data-en-data-cap="Smooth full-screen play"><img src="assets/screenshots/snow-slide.jpg" alt="Mario deslizándose por una rampa de hielo" data-en-alt="Mario sliding down an ice ramp" loading="lazy"><span data-en="Full screen">Pantalla completa</span></button>
       </div>
     </section>
 
     <!-- GET STARTED -->
     <section class="section" id="start">
       <div class="sec-head reveal">
-        <span class="kicker">04 — Empezar</span>
-        <h2>De cero a jugando<br><em>en tres pasos.</em></h2>
+        <span class="kicker" data-en="04 — Get started">04 — Empezar</span>
+        <h2 data-en="From zero to playing<br><em>in three steps.</em>">De cero a jugando<br><em>en tres pasos.</em></h2>
       </div>
       <ol class="steps">
-        <li class="step reveal"><span class="num">01</span><h3>Descarga</h3><p>Baja <code>Vortex64-Windows-x64.zip</code> (o la AppImage de Linux) con el botón de descarga.</p></li>
-        <li class="step reveal"><span class="num">02</span><h3>Descomprime</h3><p>Es portable: ponlo donde quieras. El runtime de Visual C++ ya va incluido.</p></li>
-        <li class="step reveal"><span class="num">03</span><h3>Juega</h3><p>Abre <code>vortex64.exe</code>, añade tu carpeta de ROMs y pulsa Start.</p></li>
+        <li class="step reveal"><span class="num">01</span><h3 data-en="Download">Descarga</h3><p data-en="Get <code>Vortex64-Windows-x64.zip</code> (or the Linux AppImage) with the download button.">Baja <code>Vortex64-Windows-x64.zip</code> (o la AppImage de Linux) con el botón de descarga.</p></li>
+        <li class="step reveal"><span class="num">02</span><h3 data-en="Unzip">Descomprime</h3><p data-en="It is portable: put it anywhere. The Visual C++ runtime is already included.">Es portable: ponlo donde quieras. El runtime de Visual C++ ya va incluido.</p></li>
+        <li class="step reveal"><span class="num">03</span><h3 data-en="Play">Juega</h3><p data-en="Open <code>vortex64.exe</code>, add your ROM folder and press Start.">Abre <code>vortex64.exe</code>, añade tu carpeta de ROMs y pulsa Start.</p></li>
       </ol>
       <div class="cli reveal">
-        <div class="cli-head"><span>¿Prefieres la terminal? También hay versión de línea de comandos:</span></div>
+        <div class="cli-head"><span data-en="Prefer the terminal? There is also a command-line version:">¿Prefieres la terminal? También hay versión de línea de comandos:</span></div>
         <div class="cli-box">
           <code id="cliCmd">vortex64-cli.exe "C:\ruta\juego.z64" --recompiler</code>
-          <button class="copy" id="copyBtn" aria-label="Copiar comando"><svg class="ic"><use href="#i-copy"/></svg><span>Copiar</span></button>
+          <button class="copy" id="copyBtn" aria-label="Copiar comando" data-en-aria-label="Copy command"><svg class="ic"><use href="#i-copy"/></svg><span>Copiar</span></button>
         </div>
-        <p class="cli-note">Usa <code>--interpreter</code> en lugar de <code>--recompiler</code> si quieres el intérprete. Tus ajustes se guardan en <code>%APPDATA%\vortex64</code>.</p>
+        <p class="cli-note" data-en="Use <code>--interpreter</code> instead of <code>--recompiler</code> if you want the interpreter. Your settings are saved in <code>%APPDATA%\vortex64</code>.">Usa <code>--interpreter</code> en lugar de <code>--recompiler</code> si quieres el intérprete. Tus ajustes se guardan en <code>%APPDATA%\vortex64</code>.</p>
       </div>
     </section>
 
     <!-- SPECS -->
     <section class="section" id="specs">
       <div class="sec-head reveal">
-        <span class="kicker">05 — Especificaciones</span>
-        <h2>Lo técnico,<br><em>en limpio.</em></h2>
+        <span class="kicker" data-en="05 — Specifications">05 — Especificaciones</span>
+        <h2 data-en="The technical bits,<br><em>cleaned up.</em>">Lo técnico,<br><em>en limpio.</em></h2>
       </div>
       <div class="specs">
-        <div class="spec reveal"><span>Plataformas</span><b>Windows 10/11 x64 · Linux</b></div>
-        <div class="spec reveal"><span>Compilador (Windows)</span><b>MSVC C++17</b></div>
-        <div class="spec reveal"><span>Interfaz</span><b>Qt 6</b></div>
-        <div class="spec reveal"><span>Formatos</span><b>.z64 · .n64 · .v64 · .zip · .7z</b></div>
-        <div class="spec reveal"><span>Audio / Entrada</span><b>SDL2</b></div>
-        <div class="spec reveal"><span>Idiomas</span><b>Español · English</b></div>
-        <div class="spec reveal"><span>Distribución</span><b>Portable, sin instalador</b></div>
-        <div class="spec reveal"><span>Licencia</span><b>GPL-2.0</b></div>
+        <div class="spec reveal"><span data-en="Platforms">Plataformas</span><b>Windows 10/11 x64 · Linux</b></div>
+        <div class="spec reveal"><span data-en="Compiler (Windows)">Compilador (Windows)</span><b>MSVC C++17</b></div>
+        <div class="spec reveal"><span data-en="Interface">Interfaz</span><b>Qt 6</b></div>
+        <div class="spec reveal"><span data-en="Formats">Formatos</span><b>.z64 · .n64 · .v64 · .zip · .7z</b></div>
+        <div class="spec reveal"><span data-en="Audio / Input">Audio / Entrada</span><b>SDL2</b></div>
+        <div class="spec reveal"><span data-en="Languages">Idiomas</span><b>Español · English</b></div>
+        <div class="spec reveal"><span data-en="Distribution">Distribución</span><b data-en="Portable, no installer">Portable, sin instalador</b></div>
+        <div class="spec reveal"><span data-en="License">Licencia</span><b>GPL-2.0</b></div>
       </div>
-      <p class="note">Vortex64 no incluye ROMs ni contenido de Nintendo. Necesitas tus propias copias.</p>
+      <p class="note" data-en="Vortex64 does not include ROMs or Nintendo content. You need your own copies.">Vortex64 no incluye ROMs ni contenido de Nintendo. Necesitas tus propias copias.</p>
     </section>
 
     <!-- DOWNLOAD -->
     <section class="section" id="download">
       <div class="dl reveal" id="dlCard">
         <div class="dl-copy">
-          <span class="kicker">06 — Descargar</span>
-          <h2>Listo cuando<br><em>tú lo estés.</em></h2>
+          <span class="kicker" data-en="06 — Download">06 — Descargar</span>
+          <h2 data-en="Ready when<br><em>you are.</em>">Listo cuando<br><em>tú lo estés.</em></h2>
           <p id="dlHint">Elige tu plataforma. Descomprime, ejecuta <code>vortex64.exe</code> y listo: el runtime de Visual C++ ya va incluido.</p>
-          <div class="switch" role="group" aria-label="Plataforma">
+          <div class="switch" role="group" aria-label="Plataforma" data-en-aria-label="Platform">
             <span class="switch-pill" aria-hidden="true"></span>
             <button class="opt active" data-platform="windows" aria-pressed="true">Windows</button>
             <button class="opt" data-platform="linux" aria-pressed="false">Linux</button>
           </div>
           <div class="status" id="status" aria-live="polite">Compilación para Windows seleccionada</div>
           <a class="btn btn-primary btn-lg magnetic" id="dlBtn" href="https://github.com/SugarSV11/Vortex64-Windows/releases/download/v1.1.0/Vortex64-Windows-x64.zip" download="Vortex64-Windows-x64.zip" rel="noopener"><span id="dlLabel">Descargar para Windows</span><svg class="ic"><use href="#i-down"/></svg></a>
+          <noscript><div class="src"><span>Linux:</span><a href="https://github.com/SugarSV11/Vortex64/releases/download/v1.0.0/Vortex64-1.0.0-x86_64.AppImage">Vortex64-1.0.0-x86_64.AppImage ↗</a></div></noscript>
           <div class="src">
-            <span>¿Prefieres el código?</span>
-            <a id="srcLink" href="https://github.com/SugarSV11/Vortex64-Windows/archive/refs/heads/main.zip">Código fuente ↗</a>
-            <a id="repoLink" href="https://github.com/SugarSV11/Vortex64-Windows" target="_blank" rel="noreferrer">Repositorio ↗</a>
+            <span data-en="Prefer the source code?">¿Prefieres el código?</span>
+            <a id="srcLink" href="https://github.com/SugarSV11/Vortex64-Windows/archive/refs/heads/main.zip" data-en="Source code ↗">Código fuente ↗</a>
+            <a id="repoLink" href="https://github.com/SugarSV11/Vortex64-Windows" target="_blank" rel="noreferrer" data-en="Repository ↗">Repositorio ↗</a>
           </div>
         </div>
         <div class="dl-art" aria-hidden="true">
@@ -365,23 +369,24 @@ events.onexec(0x80246000, () =&gt; {
           </div>
         </div>
       </div>
-      <p class="foot-note">La disponibilidad de compilaciones y funciones puede cambiar mientras continúa el desarrollo.</p>
+      <p class="foot-note" data-en="Build and feature availability may change while development continues.">La disponibilidad de compilaciones y funciones puede cambiar mientras continúa el desarrollo.</p>
     </section>
   </main>
 
   <footer class="footer">
     <a class="brand" href="#home"><img class="brand-mark" src="assets/brand/logo-lime.png" alt="" width="30" height="28"><span>VORTEX<b>64</b></span></a>
-    <p>Hecho por amor a jugar. Vortex64 © 2026 <a href="https://github.com/SugarSV11" target="_blank" rel="noreferrer author">SugarSV11</a></p>
-    <div class="flinks"><a href="https://github.com/SugarSV11/Vortex64" target="_blank" rel="noreferrer">Repo Linux ↗</a><a href="https://github.com/SugarSV11/Vortex64-Windows" target="_blank" rel="noreferrer">Repo Windows ↗</a></div>
-    <small>Vortex64 es un proyecto independiente y no está afiliado ni respaldado por Nintendo. Super Mario 64 es marca de Nintendo; las capturas se muestran solo para ilustrar el emulador.</small>
-    <a class="to-top" href="#home">Volver arriba ↑</a>
+    <p data-en="Made out of love for playing. Vortex64 © 2026 <a href='https://github.com/SugarSV11' target='_blank' rel='noreferrer author'>SugarSV11</a>">Hecho por amor a jugar. Vortex64 © 2026 <a href="https://github.com/SugarSV11" target="_blank" rel="noreferrer author">SugarSV11</a></p>
+    <p class="about" data-en="Vortex64 is an N64 emulator with its own Qt6 interface, built on the <a href='https://github.com/project64/project64' target='_blank' rel='noreferrer'>Project64</a> core (GPLv2).">Vortex64 es un emulador de N64 con interfaz Qt6 propia, construido sobre el núcleo de <a href="https://github.com/project64/project64" target="_blank" rel="noreferrer">Project64</a> (GPLv2).</p>
+    <div class="flinks"><a href="https://github.com/SugarSV11/Vortex64" target="_blank" rel="noreferrer" data-en="Linux repo ↗">Repo Linux ↗</a><a href="https://github.com/SugarSV11/Vortex64-Windows" target="_blank" rel="noreferrer" data-en="Windows repo ↗">Repo Windows ↗</a></div>
+    <small data-en="Vortex64 is an independent project and is not affiliated with or endorsed by Nintendo. Super Mario 64 is a trademark of Nintendo; screenshots are shown only to illustrate the emulator.">Vortex64 es un proyecto independiente y no está afiliado ni respaldado por Nintendo. Super Mario 64 es marca de Nintendo; las capturas se muestran solo para ilustrar el emulador.</small>
+    <a class="to-top" href="#home" data-en="Back to top ↑">Volver arriba ↑</a>
   </footer>
 
-  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Captura ampliada">
-    <button class="lb-btn lb-close" id="lbClose" aria-label="Cerrar">×</button>
-    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Captura ampliada" data-en-aria-label="Enlarged screenshot">
+    <button class="lb-btn lb-close" id="lbClose" aria-label="Cerrar" data-en-aria-label="Close">×</button>
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Anterior" data-en-aria-label="Previous">‹</button>
     <figure><img id="lbImg" alt=""><figcaption><span id="lbCap"></span><span class="lb-count" id="lbCount"></span></figcaption></figure>
-    <button class="lb-btn lb-next" id="lbNext" aria-label="Siguiente">›</button>
+    <button class="lb-btn lb-next" id="lbNext" aria-label="Siguiente" data-en-aria-label="Next">›</button>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
